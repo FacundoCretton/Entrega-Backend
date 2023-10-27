@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { register } from "../controllers/auth";
+import { login, register, verifyUser } from "../controllers/auth";
 import { check } from "express-validator";
 import { recoleccionDeErrores } from "../middlewares/recoleccionDeErrores";
 import { emailExiste } from "../helpers/validacionesDB";
@@ -21,6 +21,27 @@ router.post( "/register",
     register
 );
 
+router.post( "/login",
+    [
+        check("email", "El email no es valido") .isEmail(),
+        check("email" ,"El email es obligatorio").not().isEmpty(),
+        check("password", "El password debe tener al menos 8 caracteres").isLength({min: 8}),
+        recoleccionDeErrores
+    ],
+    login
 
+);
+
+router.patch(
+    "/verify",
+    [
+        check("code", "El código es obligatorio").not().isEmpty(),
+        check("code", "El código debe tener 10 caracteres").isLength({min: 10}),
+        check("email", "El email no es valido") .isEmail(),
+        check("email" ,"El email es obligatorio").not().isEmpty(),
+        recoleccionDeErrores
+    ],
+    verifyUser
+);
 
 export default router;
