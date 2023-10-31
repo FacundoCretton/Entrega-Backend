@@ -16,23 +16,19 @@ router.get("/",
 
 ,getOrder)
 
-router.post("/",
+router.post("/", 
+    
     [
         validarJWT,
         isVerify,
-        check("price", "El precio es obligatorio").not().isEmpty(),
-        check("shippingCost", "El costo de envío es necesario").not().isEmpty(),
-        check("total", "El total es requerido").not().isEmpty(),
-        check("shippingDetails", "Los detalles del envío son obligatorios").not().isEmpty(),
-        check("items", "El array de productos es requerido").not().isEmpty(),
+        check ("price", "El precio es obligatorio") .not() .isEmpty(),
+        check("shippingCost", "El costo de envío es necesario") .not() .isEmpty(),
+        check ("total", "El total es requerido") .not() .isEmpty(),
+        check ("shippingDetails", "Los detalles del envío son obligatorios") .not() .isEmpty(),
+        check ("items", "El array de productos es requerido") .not() .isEmpty(),
         recoleccionDeErrores
     ],
-    createOrder
-);
 
-router.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    next();
-});
+createOrder)
 
 export default router;
