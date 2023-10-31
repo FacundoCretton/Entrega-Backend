@@ -82,7 +82,7 @@ export const verifyUser = async(req: Request, res: Response) => {
         }
 
         if (code !== user.code) {
-            res.status(400).json({msg: "Código incorrecto"});
+            res.status(200).json({msg: "Código incorrecto"});
             return;
         }
         await User.findOneAndUpdate(
