@@ -20,13 +20,13 @@ const transporter = nodemailer.createTransport({
 
 
 
-export const sendEmail = async (to: string, code: string, nombre: string): Promise<void> => {
+export const sendEmail = async (to: string, code: string, name: string): Promise<void> => {
     const mailOptions = {
         from: '"La Despensa de la Abuela" <ladespensadelaabuelaok@gmail.com>',
         to,
         subject: 'Código de verificación',
         html: `
-            <p>¡Hola ${nombre}!</p>
+            <p>¡Hola ${name}!</p>
             <p>Tu código de verificación es: ${code}</p>
             <img src="https://i.ibb.co/yWGf1rY/tu-imagen.png" alt="Logo">
             <p>La Despensa de la Abuela. Todos los derechos reservados</p>

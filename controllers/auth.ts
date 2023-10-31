@@ -11,10 +11,10 @@ import { generarJWT } from "../helpers/generarJWT";
 export const register = async (req: Request, res: Response) => {
     //Al saber que el usuario me va a estar mandando data en la request, lo puedo desestructurar del request body
 
-    const{nombre, email, password, rol}:IUser= req.body;
+    const{name, email, password, rol}:IUser= req.body;
     //Yo sé que esta data que viene del body tiene que ver con el usuario, entonces como me aseguro que todo esté bien? Yo puedo tipar la data de adentro y le puedo decir que tiene que respetar el interface de user
 
-    const user = new User({nombre, email, password, rol}); 
+    const user = new User({name, email, password, rol}); 
 
     const salt = bcryptjs.genSaltSync();
 
@@ -30,7 +30,7 @@ export const register = async (req: Request, res: Response) => {
     user.code = newCode;
     await user.save();
 
-    await sendEmail (email, newCode, nombre);
+    await sendEmail (email, newCode, name);
     res.status(201).json({user});
 };
 
