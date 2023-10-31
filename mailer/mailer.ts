@@ -27,7 +27,8 @@ export const sendEmail = async (to: string, code: string, nombre: string): Promi
         subject: 'Código de verificación',
         html: `
             <p>¡Hola ${nombre}!</p>
-            <p>Tu código de verificación es: ${code}</p>
+            <p>Tu código de verificación es: ${code}. Seguí este enlace
+            para validar tu cuenta: https://entrega-front-back.vercel.app/verify</p>
             <img src="https://i.ibb.co/yWGf1rY/tu-imagen.png" alt="Logo">
             <p>La Despensa de la Abuela. Todos los derechos reservados</p>
         `,
