@@ -2,7 +2,7 @@ import { Model, Schema, model } from "mongoose";
 import { ROLES } from "../helpers/constants";
 
 export interface IUser {
-    name: string;
+    nombre: string;
     email: string;
     password: string;
     rol?: string;
@@ -15,7 +15,7 @@ export interface IUser {
 
 const userSchema = new Schema<IUser>({
 
-    name: {
+    nombre: {
         type: String,
         required: [true, 'El nombre es obligatorio']
     },
