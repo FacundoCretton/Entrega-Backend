@@ -63,11 +63,7 @@ export const OrdersSchema = new Schema <IOrder> ({
     
     items:{
         type:[{
-            desc:{
-                type: String,
-                required:true,
-                
-            },
+
             id: {
                 type: Number,
                 required:true,
@@ -80,7 +76,7 @@ export const OrdersSchema = new Schema <IOrder> ({
                 type: Number,
                 required:true,
             },
-            title:{
+            name:{
                 type: String,
                 required:true,
             },
