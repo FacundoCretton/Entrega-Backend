@@ -10,11 +10,11 @@ interface IShippingDetails {
 
 
 interface IOrderItem {
-    desc: String;
+    // desc: String;
     id: Number,
     price: Number,
     quantity: Number,
-    title: String
+    name: String
 
 };
 
